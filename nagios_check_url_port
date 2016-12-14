@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+nc -zv YOUR_HOST YOUR_PORT
+if [ $? -eq 1 ] ; then
+    exit 2
+else
+    exit 0
+fi
