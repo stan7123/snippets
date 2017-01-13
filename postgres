@@ -12,7 +12,15 @@ select pg_cancel_backend([PID]);
 
 
 #
-# loading data from CSV with temporary table in the middle to able to chose columns
+#dumping query data to csv file
+#
+copy (
+[query]
+) To '/path/to/file/file.csv' with csv delimiter ',' header;
+
+
+#
+# loading data from CSV with temporary table in the middle to be able to choose columns
 #
 TRUNCATE temp;
 DROP TABLE temp;
