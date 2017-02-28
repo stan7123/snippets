@@ -58,5 +58,7 @@ FROM temp;
 
 
 #
+# load data from csv with automatically generated table
 #
-#
+pip install csvkit
+csvsql --db postgresql://[user]:[hasło]@localhost:[port]/[baza] --insert --encoding [kodowanie] --delimiter \[separator] --quotechar \[quoting_char] --blanks --no-constraints --no-inference [plik.csv]
