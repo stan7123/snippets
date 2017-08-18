@@ -1,0 +1,2 @@
+# Splitting csv file into separate files with respecting new lines
+split -n l/7 --additional-suffix=.csv big_file.csv
