@@ -4,14 +4,10 @@ MySQL mass dump/insert/copy:
 DUMP:
 mkdir /ssd/tmp/ads_lp_html2
 chmod 0777 mkdir
-mysqldump -ufbstat -pCcAT8WYvwAdM5EVf fbstat ads_lp_html2 --where="aid>19519480" --no-create-info -T /ssd/tmp/ads_lp_html2
-
-
-FILE SIZE WATCHER:
-while :; do du -a -h ads_lp_html2.txt && sleep 10; done
+mysqldump -u[user] -p[pass] fbstat ads_lp_html2 --where="aid>19519480" --no-create-info -T /ssd/tmp/ads_lp_html2
 
 
 LOAD:
 trzeba zmienic nazwe pliku z dumpem na nazwe tabeli do ktorej chcemy wrzucic dane
 mv ads_lp_html2.txt html_test.txt
-mysqlimport -ufbstat -pCcAT8WYvwAdM5EVf --local fbstat html_test.txt
+mysqlimport -u[user] -p[pass] --local fbstat html_test.txt
