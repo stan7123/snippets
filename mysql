@@ -11,3 +11,22 @@ LOAD:
 trzeba zmienic nazwe pliku z dumpem na nazwe tabeli do ktorej chcemy wrzucic dane
 mv ads_lp_html2.txt html_test.txt
 mysqlimport -u[user] -p[pass] --local fbstat html_test.txt
+
+
+Dumping custom data to compressed (multiprocess compression) archive
+mysql --host=[host] --user=[user] --password=[pass] --quick [db_name] < /home/ubuntu/query.sql | pv -b | pigz > ./archive.gz
+
+We can control MAX_EXECUTION_TIME from query
+SELECT 
+/*+ MAX_EXECUTION_TIME(999999999) */
+    id 
+FROM scheduling_eventlogvalue
+WHERE 
+    last_modified >= '2022-01-01 00:00:00';
+
+
+Using mysqldump to save indicated tables:
+mysqldump --host=[db_host] --user=[user] --set-gtid-purged=OFF --column-statistics=0 -p db_name table1 table2 > output.sql
+and load it back:
+mysql --host=[db_host] --user=[user] -p db_name < data.sql
+
