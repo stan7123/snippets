@@ -30,3 +30,7 @@ mysqldump --host=[db_host] --user=[user] --set-gtid-purged=OFF --column-statisti
 and load it back:
 mysql --host=[db_host] --user=[user] -p db_name < data.sql
 
+
+Dumping without locking tables:
+mysqldump --user=mv --host=mysqlcluster.realitymeta.io --password=BY54b3yuVuy5vy3uvuyatvuy5GGGY4 --lock-tables=false metaverse > db_dump.sql
+
