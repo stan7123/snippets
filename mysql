@@ -32,5 +32,5 @@ mysql --host=[db_host] --user=[user] -p db_name < data.sql
 
 
 Dumping without locking tables:
-mysqldump --user=mv --host=mysqlcluster.realitymeta.io --password=BY54b3yuVuy5vy3uvuyatvuy5GGGY4 --lock-tables=false metaverse > db_dump.sql
+mysqldump --user=[user] --host=[host] --password=[pass] --lock-tables=false db_name > db_dump.sql
 
