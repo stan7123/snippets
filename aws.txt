@@ -1,0 +1,4 @@
+Downloading file from inside of ECS container
+
+aws ecs execute-command --command bash --interactive --cluster scalepoint-prod-cluster --task a229d9852ee7463f893dcbedd1c63829 --container yagna --command "base64 /root/.local/share/yagna_dir.tar.gz" --interactive >> ~/yagna_dir_b64.txt
+base64 -d yagna_dir_b64.txt > yagna_dir.tar.gz
