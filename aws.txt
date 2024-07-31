@@ -1,4 +1,7 @@
 Downloading file from inside of ECS container
 
-aws ecs execute-command --command bash --interactive --cluster scalepoint-prod-cluster --task a229d9852ee7463f893dcbedd1c63829 --container yagna --command "base64 /root/.local/share/yagna_dir.tar.gz" --interactive >> ~/yagna_dir_b64.txt
-base64 -d yagna_dir_b64.txt > yagna_dir.tar.gz
+1. aws ecs execute-command --command bash --interactive --cluster scalepoint-prod-cluster --task a229d9852ee7463f893dcbedd1c63829 --container yagna --command "base64 /root/.local/share/yagna_dir.tar.gz" --interactive >> ~/yagna_dir_b64.txt
+
+2. Use nano editor to remove lines around base64 data. (Warning: Sublime might corrupt the file)
+
+3. base64 -d yagna_dir_b64.txt > yagna_dir.tar.gz
